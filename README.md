@@ -5,6 +5,10 @@ This package implements Thompson's Group F, from this point simply referred to a
 
 https://web.mat.upc.edu/pep.burillo/book_en.php
 
+Elements of Thompson's Group are implemented using the group presentation
+
+    〈x₀,x₁,x₂,x₃,…|〉
+
 Requirements:
 - Python 3.10 or above
 - NetworkX (Written using version 3.2.1)
