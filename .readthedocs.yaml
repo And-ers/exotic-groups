@@ -1,0 +1,8 @@
+version: 1
+
+os: win11-10.0.22621
+tools:
+  python: "3.12"
+  networkx: "3.2"
+
+configuration: docs/conf.py
