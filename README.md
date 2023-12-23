@@ -7,9 +7,9 @@ https://web.mat.upc.edu/pep.burillo/book_en.php
 
 Elements of Thompson's Group are implemented using the following group presentation:
 
-    〈 x₀,x₁,x₂,x₃,…,xₙ,… | xᵢxⱼxᵢ = xⱼ₊₁, for i < j 〉.
+    〈 x₀,x₁,x₂,x₃,…,xₙ,… | xᵢxⱼxᵢ = xⱼ₊₁, for i < j 〉
 
-Each element is represented as a
+Each element is represented as a 
 
 Requirements:
 - Python 3.10 or above
