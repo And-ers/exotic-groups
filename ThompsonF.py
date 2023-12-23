@@ -10,14 +10,36 @@ def findNth(input, target, n):
         n -= 1
     return start
 
-class Thompson():
+class ThompsonF():
+  """This is a class representation of Thompson's Group F, given the
+  following presentation by generators and relations:
+
+  :math:`F = \left\langle x_0, x_1, x_2, \ldots, x_n, \ldots \mid x_i^{-1}x_jx_i = x_{j+1} \text{ for } i < j. \right\rangle`.
+
+  An element of the group is represented by an object of the ThompsonF class.
+
+  :param subs: A list containing the subscripts of the generators that appear
+    in the given element, from left to right in increasing index order. Entries
+    must be nonnegative integers. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
+    would be initialized with subs = [5, 3, 7, 11, 0].
+  :type list:
+  :param exps: A list containing the exponents of the generators that appear
+    in the given element, from left to right in increasing index order, including
+    exponents of 1. Entries can be positive or negative nonzero integers. The length of
+    this list must match the length of the above *subs* parameter, and the index
+    of the exponent of each generator must match the index of the corresponding
+    subscript. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
+    would be initialized with exps = [2, 1, -1, 3, -7].
+  :type list:
+  """
 
   # Lists to collect unicode codes for superscripts and subscripts, for printing purposes.
   unicode_subs = ["\u2080", "\u2081", "\u2082", "\u2083", "\u2084", "\u2085", "\u2086", "\u2087", "\u2088", "\u2089"]
   unicode_sups = ["\u2070", "\u00B9", "\u00B2", "\u00B3", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079"]
 
   def __init__(self, subs = [0], exps = [0]):
-    # We must have exactly as many exponents as distinct elements.
+    """Constructor method
+    """
     if len(subs) == len(exps):
       self._subs = subs
       self._exps = exps
@@ -31,14 +53,14 @@ class Thompson():
     for i in range(len(self._subs)):
       genstring += "x"
       for digit in str(self._subs[i]):
-        genstring += Thompson.unicode_subs[int(digit)]
+        genstring += ThompsonF.unicode_subs[int(digit)]
       if self._exps[i] < 0:
         genstring += "\u207B"
         for digit in str(-1*self._exps[i]):
-          genstring += Thompson.unicode_sups[int(digit)]
+          genstring += ThompsonF.unicode_sups[int(digit)]
       elif self._exps[i] > 1:
         for digit in str(self._exps[i]):
-          genstring += Thompson.unicode_sups[int(digit)]
+          genstring += ThompsonF.unicode_sups[int(digit)]
     return genstring
 
   #####
@@ -93,7 +115,6 @@ class Thompson():
         leaf_to_replace = start
         new_forest = temp_join[:leaf_to_replace] + "(.)(.)" + temp_join[leaf_to_replace+1:]
         bot_forest = new_forest.split(" ")
-        #print(bot_forest)
 
     for elem in top_elements:
       if elem == 0:
@@ -109,7 +130,6 @@ class Thompson():
         left_tree = top_forest.pop(top_pointer + elem - 1)
         new_tree = "(" + left_tree + ")(" + right_tree + ")"
         top_forest.insert(top_pointer + elem - 1, new_tree)
-        #print(top_forest)
 
     top_forest = " ".join(top_forest)
     bot_forest = " ".join(bot_forest)
@@ -143,7 +163,7 @@ class Thompson():
         signs += [1] * self._exps[entry]
 
     if elements == []:
-      return Thompson([0],[0])
+      return ThompsonF([0],[0])
 
     elem = 0
     while elem <= max(elements):
@@ -163,7 +183,7 @@ class Thompson():
           signs.pop(curr+1)
           signs.pop(curr)
           if elements == []:
-            return Thompson([0],[0])
+            return ThompsonF([0],[0])
           if curr > 0:
             curr -= 1
           #print(Thompson(elements,signs))
@@ -186,7 +206,6 @@ class Thompson():
           signs[curr+1], signs[curr] = signs[curr], signs[curr+1]
           if curr > 0:
             curr -= 1
-          #print(Thompson(elements,signs))
 
         # Case 4: None of the above hold. In this case, the elements are in the
         # proper order, and we can move forward.
@@ -229,10 +248,10 @@ class Thompson():
           elif new_exps[occ] > 1:
             new_exps[occ] = new_exps[occ] - 1
 
-    return Thompson(new_subs, new_exps)
+    return ThompsonF(new_subs, new_exps)
 
   def __mul__(self, other):
-    return Thompson(self._subs + other._subs, self._exps + other._exps).normalForm()
+    return ThompsonF(self._subs + other._subs, self._exps + other._exps).normalForm()
 
   def __eq__(self, other):
     norm1 = self.normalForm()
@@ -366,4 +385,4 @@ class Thompson():
       norm = self.normalForm()
       new_exps = [(-1)*x for x in norm._exps[::-1]]
       new_subs = norm._subs[::-1]
-      return Thompson(new_subs, new_exps).normalForm()
+      return ThompsonF(new_subs, new_exps).normalForm()
