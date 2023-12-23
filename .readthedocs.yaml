@@ -1,6 +1,6 @@
 version: 2
 
-os: win11-10.0.22621
+os: ubuntu-22.04
 tools:
   python: "3.12"
   networkx: "3.2"
