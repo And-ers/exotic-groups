@@ -1,7 +1,7 @@
 #####
 #   This package recreates Thompson's Group F as a
 
-import networkx as nx
+#import networkx as nx
 
 def findNth(input, target, n):
     start = input.find(target)
