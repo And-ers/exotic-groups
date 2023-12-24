@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'exotic-groups'
+project = 'thompsons-group-f'
 copyright = '2023, Anders Cornect'
 author = 'Anders Cornect'
 
