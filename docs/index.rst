@@ -6,6 +6,11 @@
 Welcome to exotic-groups's documentation!
 =========================================
 
+Still trying to get this to work, to be honest.
+
+Contents
+--------
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
