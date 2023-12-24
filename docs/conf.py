@@ -3,10 +3,8 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-#import sys
-#import os
-#sys.path.insert(0,os.path.abspath('C:/Users/17and/AppData/Local/Programs/Python/Python312/Lib/site-packages'))
-#import sphinx_rtd_theme
+import sys, os
+sys.path.insert(0,os.path.abspath('../thompsonf/'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
