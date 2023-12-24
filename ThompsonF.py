@@ -22,7 +22,7 @@ class ThompsonF():
     in the given element, from left to right in increasing index order. Entries
     must be nonnegative integers. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
     would be initialized with subs = [5, 3, 7, 11, 0].
-  :type list:
+  :type list[int]:
   :param exps: A list containing the exponents of the generators that appear
     in the given element, from left to right in increasing index order, including
     exponents of 1. Entries can be positive or negative nonzero integers. The length of
@@ -30,7 +30,7 @@ class ThompsonF():
     of the exponent of each generator must match the index of the corresponding
     subscript. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
     would be initialized with exps = [2, 1, -1, 3, -7].
-  :type list:
+  :type list[int]:
   """
 
   # Lists to collect unicode codes for superscripts and subscripts, for printing purposes.
