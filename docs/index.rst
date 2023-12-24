@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to exotic-groups's documentation!
+Welcome to thompson-group-f's documentation!
 =========================================
 
 Still trying to get this to work, to be honest.
