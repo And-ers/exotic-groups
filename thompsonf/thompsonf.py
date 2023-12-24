@@ -11,12 +11,12 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
-  """This is a class representation of Thompson's Group F, given the
-  following presentation by generators and relations\:
-
-  :math:`F = \left\langle x_0, x_1, x_2, \ldots, x_n, \ldots \mid x_i^{-1}x_jx_i = x_{j+1} \text{ for } i < j. \right\rangle`.
-
-  An element of the group is represented by an object of the ThompsonF class.
+  """
+|This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
+|
+|  :math:`F = \left\langle x_0, x_1, x_2, \ldots, x_n, \ldots \mid x_i^{-1}x_jx_i = x_{j+1} \text{ for } i < j. \right\rangle`.
+|
+|  An element of the group is represented by an object of the ThompsonF class.
 
   :param subs: A list containing the subscripts of the generators that appear
     in the given element, from left to right in increasing index order. Entries
