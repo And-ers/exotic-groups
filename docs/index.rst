@@ -9,6 +9,7 @@ Welcome to exotic-groups's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
    usage
    api
 
