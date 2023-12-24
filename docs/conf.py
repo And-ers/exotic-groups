@@ -5,7 +5,7 @@
 
 import sys
 import os
-sys.path.insert(0,os.path.abspath('C:\Users\17and\AppData\Local\Programs\Python\Python312\Lib\site-packages'))
+sys.path.insert(0,os.path.abspath('C:/Users/17and/AppData/Local/Programs/Python/Python312/Lib/site-packages'))
 import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
