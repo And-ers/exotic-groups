@@ -11,6 +11,6 @@ An element of *F* is represented by an element of the ThompsonF class:
     :members:
     :undoc-members:
 
-.. autoclass:: thompsonf.ThompsonF
+.. autoclass:: thompsonf.thompsonf.ThompsonF
     :members:
     :undoc-members:
