@@ -3,6 +3,6 @@ requires = ["networkx"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "exotic groups"
+name = "Thompson's Group F"
 authors = [{name = "Anders", email = "accornect@mun.ca"}]
 dynamic = ["version", "description"]

@@ -7,6 +7,6 @@ Creating elements of F
 
 An element of *F* is represented by an element of the ThompsonF class:
 
-.. autoclass:: ThompsonF.ThompsonF
+.. autoclass:: thompson-group-f.ThompsonF
     :members:
     :undoc-members:

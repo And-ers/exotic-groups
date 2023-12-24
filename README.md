@@ -1,4 +1,4 @@
-# exotic-groups
+# thompson-group-f
 Python package used to study more exotic groups.
 
 This package implements Thompson's Group F, from this point simply referred to as "F", as a Python class. For an introduction on F, please see José Burillo's "Introduction to Thompson's Group F", available from his UPC webpage below.
