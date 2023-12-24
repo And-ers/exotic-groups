@@ -6,9 +6,21 @@
 Welcome to exotic-groups's documentation!
 =========================================
 
+Still trying to get this to work, to be honest.
+
+.. note::
+
+   This project is under active development.
+
+Contents
+--------
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   usage
+   api
 
 
 
