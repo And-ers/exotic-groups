@@ -14,7 +14,6 @@ class ThompsonF():
   """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
   
   .. centered::
-
     :math:`F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid x_i^{-1}x_jx_i = x_{j+1} \\text{ for } i < j \\right\\rangle`.
   
   An element of the group is represented by an object of the ThompsonF class.
