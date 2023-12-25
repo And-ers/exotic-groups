@@ -13,8 +13,9 @@ def findNth(input, target, n):
 class ThompsonF():
   """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
   
-  .. centered::
-    :math:`F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid x_i^{-1}x_jx_i = x_{j+1} \\text{ for } i < j \\right\\rangle`.
+  .. math::
+    F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid
+    x_i^{-1}x_jx_i = x_{j+1} \\text{ for } i < j \\right\\rangle.
   
   An element of the group is represented by an object of the ThompsonF class.
 
@@ -153,7 +154,7 @@ class ThompsonF():
   # Takes an arbitrary element of F and returns the same element in normal form.
   #
   def normalForm(self):
-    """Find the normal form of a given element.
+    """Find the normal form of a given element. Specifically, in the form
 
     :return: The given element in normal form.
     :rtype: ThompsonF
@@ -347,9 +348,6 @@ class ThompsonF():
       # Otherwise, if it is interior, label it "I".
       elif bot_forest[index+1] == ")":
         bot_labels.append("I")
-
-    #print(top_labels)
-    #print(bot_labels)
 
     # Make sure both label sets are the correct length.
     if len(bot_labels) != num_leaves - 1 or len(top_labels) != len(bot_labels):
