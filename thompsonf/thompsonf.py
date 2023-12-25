@@ -64,8 +64,6 @@ class ThompsonF():
   #
   #
   def forestDiagram(self):
-    """
-    """
     # Place each individual positive element in one list,
     # and each individual negative elements in another.
     # Both are in descending order.
@@ -147,7 +145,11 @@ class ThompsonF():
   # Takes an arbitrary element of F and returns the same element in normal form.
   #
   def normalForm(self):
+    """Find the normal form of a given element.
 
+    :return: The given element in normal form.
+    :rtype: ThompsonF
+    """
     # Create a list with single elements listed one by one,
     # with exponent +/-1.
 
@@ -247,9 +249,23 @@ class ThompsonF():
             new_exps[occ] = new_exps[occ] - 1
 
     return ThompsonF(new_subs, new_exps)
+  
+  def inverse(self):
+    """Get the inverse of a given element.
+
+    :return: The given element's inverse, in normal form.
+    :rtype: ThompsonF
+    """
+    norm = self.normalForm()
+    new_exps = [(-1)*x for x in norm._exps[::-1]]
+    new_subs = norm._subs[::-1]
+    return ThompsonF(new_subs, new_exps).normalForm()
 
   def __mul__(self, other):
     return ThompsonF(self._subs + other._subs, self._exps + other._exps).normalForm()
+  
+  def __div__(self, other):
+    return self * other.inverse()
 
   def __eq__(self, other):
     norm1 = self.normalForm()
@@ -376,11 +392,3 @@ class ThompsonF():
         else:
           weight += 0
     return weight
-
-  #####
-  #
-  def inverse(self):
-      norm = self.normalForm()
-      new_exps = [(-1)*x for x in norm._exps[::-1]]
-      new_subs = norm._subs[::-1]
-      return ThompsonF(new_subs, new_exps).normalForm()
