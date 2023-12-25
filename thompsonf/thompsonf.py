@@ -34,6 +34,13 @@ class ThompsonF():
   unicode_subs = ["\u2080", "\u2081", "\u2082", "\u2083", "\u2084", "\u2085", "\u2086", "\u2087", "\u2088", "\u2089"]
   unicode_sups = ["\u2070", "\u00B9", "\u00B2", "\u00B3", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079"]
 
+  space_pair_weights = {
+    "LL" : 2,   "LN" : 1,   "LR" : 1,   "LI" : 1,
+    "NL" : 1,   "NN" : 2,   "NR" : 2,   "NI" : 2,
+    "RL" : 1,   "RN" : 2,   "RR" : 2,   "RI" : 0,
+    "IL" : 1,   "IN" : 2,   "IR" : 0,   "II" : 0
+  }
+
   def __init__(self, subs = [0], exps = [0]):
     """Constructor method
     """
@@ -186,7 +193,6 @@ class ThompsonF():
             return ThompsonF([0],[0])
           if curr > 0:
             curr -= 1
-          #print(Thompson(elements,signs))
 
         # Case 2: If we see a positive element where the element to the left has
         # a higher subscript, move the positive element left and increase the
@@ -355,40 +361,42 @@ class ThompsonF():
 
     # Finally, count up the weights of the spaces.
     for label_index in range(len(top_labels)):
-      if top_labels[label_index] == "L":
-        if bot_labels[label_index] == "L":
-          weight += 2
-        elif bot_labels[label_index] == "N":
-          weight += 1
-        elif bot_labels[label_index] == "R":
-          weight += 1
-        else:
-          weight += 1
-      if top_labels[label_index] == "N":
-        if bot_labels[label_index] == "L":
-          weight += 1
-        elif bot_labels[label_index] == "N":
-          weight += 2
-        elif bot_labels[label_index] == "R":
-          weight += 2
-        else:
-          weight += 2
-      if top_labels[label_index] == "R":
-        if bot_labels[label_index] == "L":
-          weight += 1
-        elif bot_labels[label_index] == "N":
-          weight += 2
-        elif bot_labels[label_index] == "R":
-          weight += 2
-        else:
-          weight += 0
-      if top_labels[label_index] == "I":
-        if bot_labels[label_index] == "L":
-          weight += 1
-        elif bot_labels[label_index] == "N":
-          weight += 2
-        elif bot_labels[label_index] == "R":
-          weight += 0
-        else:
-          weight += 0
+      label = top_labels[label_index] + bot_labels[label_index]
+      weight += ThompsonF.space_pair_weights[label]
+      # if top_labels[label_index] == "L":
+      #   if bot_labels[label_index] == "L":
+      #     weight += 2
+      #   elif bot_labels[label_index] == "N":
+      #     weight += 1
+      #   elif bot_labels[label_index] == "R":
+      #     weight += 1
+      #   else:
+      #     weight += 1
+      # if top_labels[label_index] == "N":
+      #   if bot_labels[label_index] == "L":
+      #     weight += 1
+      #   elif bot_labels[label_index] == "N":
+      #     weight += 2
+      #   elif bot_labels[label_index] == "R":
+      #     weight += 2
+      #   else:
+      #     weight += 2
+      # if top_labels[label_index] == "R":
+      #   if bot_labels[label_index] == "L":
+      #     weight += 1
+      #   elif bot_labels[label_index] == "N":
+      #     weight += 2
+      #   elif bot_labels[label_index] == "R":
+      #     weight += 2
+      #   else:
+      #     weight += 0
+      # if top_labels[label_index] == "I":
+      #   if bot_labels[label_index] == "L":
+      #     weight += 1
+      #   elif bot_labels[label_index] == "N":
+      #     weight += 2
+      #   elif bot_labels[label_index] == "R":
+      #     weight += 0
+      #   else:
+      #     weight += 0
     return weight
