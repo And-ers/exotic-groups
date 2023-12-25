@@ -64,7 +64,8 @@ class ThompsonF():
   #
   #
   def forestDiagram(self):
-
+    """
+    """
     # Place each individual positive element in one list,
     # and each individual negative elements in another.
     # Both are in descending order.
