@@ -11,11 +11,11 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
-  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
-
-  :math:`F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid x_i^{-1}x_jx_i = x_{j+1} \\text{ for } i < j \\right\\rangle`.
-
-  An element of the group is represented by an object of the ThompsonF class.
+  """|This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
+  |
+  |:math:`F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid x_i^{-1}x_jx_i = x_{j+1} \\text{ for } i < j \\right\\rangle`.
+  |
+  |An element of the group is represented by an object of the ThompsonF class.
 
   :param subs: A list containing the subscripts of the generators that appear
     in the given element, from left to right in increasing index order. Entries
@@ -25,9 +25,7 @@ class ThompsonF():
   :param exps: A list containing the exponents of the generators that appear
     in the given element, from left to right in increasing index order, including
     exponents of 1. Entries can be positive or negative nonzero integers. The length of
-    this list must match the length of the above *subs* parameter, and the index
-    of the exponent of each generator must match the index of the corresponding
-    subscript. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
+    this list must match the length of the above *subs* parameter. For example, the element :math:`x_5^2x_3x_7^{-1}x_{11}^3x_0^{-7}`
     would be initialized with exps = [2, 1, -1, 3, -7].
   :type exps: list[int]
   """
