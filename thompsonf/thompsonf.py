@@ -281,7 +281,12 @@ class ThompsonF():
     return norm1._subs == norm2._subs and norm1._exps == norm2._exps
 
   def __len__(self):
+    """Get the length of the shortest word in terms of :math:`x_0` and :math:`x_1` representing the given element,
+    i.e. its word metric with respect to the set :math:`\{x_0, x_1\}`.
 
+    :return: The word norm of the given element with respect to :math:`x_0` and :math:`x_1`.
+    :rtype: int
+    """
     if self._subs == [0] and self._exps == [0]:
       return 0
 
