@@ -1,4 +1,4 @@
-# thompson-group-f
+# thompsons-group-f
 
 This package implements _Thompson's Group $F$_, from this point simply referred to as "$F$", as a Python class. For the necessary background information on $F$, please see José Burillo's _Introduction to Thompson's Group $F$_, available from the UPC webpage [here](https://web.mat.upc.edu/pep.burillo/book_en.php).
 
