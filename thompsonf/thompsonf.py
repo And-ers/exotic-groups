@@ -1,8 +1,3 @@
-#####
-#   This package recreates Thompson's Group F as a
-
-#import networkx as nx
-
 def findNth(input, target, n):
     start = input.find(target)
     while start >= 0 and n > 1:
@@ -73,6 +68,16 @@ class ThompsonF():
   #
   #
   def forestDiagram(self):
+    """Calculates the forest diagram for a given element
+        of F, as described in "Forest Diagrams for Elements
+        of Thompson's Group F" by Belk and Brown.
+
+      :return: The forest diagram associated with the given element, given by a 4-tuple.
+        The entries represent the top forest, top pointer, bottom forest, and
+        bottom pointer, in that order.
+      :rtype: (str, int, str, int)
+    """
+
     # Place each individual positive element in one list,
     # and each individual negative elements in another.
     # Both are in descending order.
@@ -259,7 +264,7 @@ class ThompsonF():
     return ThompsonF(new_subs, new_exps)
   
   def inverse(self):
-    """Get the inverse of a given element.
+    """Calculates the inverse of a given element.
 
     :return: The given element's inverse, in normal form.
     :rtype: ThompsonF
@@ -367,40 +372,4 @@ class ThompsonF():
     for label_index in range(len(top_labels)):
       label = top_labels[label_index] + bot_labels[label_index]
       weight += ThompsonF.space_pair_weights[label]
-      # if top_labels[label_index] == "L":
-      #   if bot_labels[label_index] == "L":
-      #     weight += 2
-      #   elif bot_labels[label_index] == "N":
-      #     weight += 1
-      #   elif bot_labels[label_index] == "R":
-      #     weight += 1
-      #   else:
-      #     weight += 1
-      # if top_labels[label_index] == "N":
-      #   if bot_labels[label_index] == "L":
-      #     weight += 1
-      #   elif bot_labels[label_index] == "N":
-      #     weight += 2
-      #   elif bot_labels[label_index] == "R":
-      #     weight += 2
-      #   else:
-      #     weight += 2
-      # if top_labels[label_index] == "R":
-      #   if bot_labels[label_index] == "L":
-      #     weight += 1
-      #   elif bot_labels[label_index] == "N":
-      #     weight += 2
-      #   elif bot_labels[label_index] == "R":
-      #     weight += 2
-      #   else:
-      #     weight += 0
-      # if top_labels[label_index] == "I":
-      #   if bot_labels[label_index] == "L":
-      #     weight += 1
-      #   elif bot_labels[label_index] == "N":
-      #     weight += 2
-      #   elif bot_labels[label_index] == "R":
-      #     weight += 0
-      #   else:
-      #     weight += 0
     return weight
