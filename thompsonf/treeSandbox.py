@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import turtle as tl
 import sys
 
-def draw_forest_turtle(forest,pointer,height,upsideDown = False):
+def drawForestTurtle(forest,pointer,height,upsideDown = False):
     # Top forest: Draw each of the leaves, equally spaced.
     forestList = forest.strip().split(" ")
     allLeaves = forest.count(".")
@@ -70,7 +70,7 @@ def draw_forest_turtle(forest,pointer,height,upsideDown = False):
                 tl.up()
     tl.hideturtle()
 
-def draw_forest_diagram(element):
+def drawForestDiagram(element):
     os.system('cls')
     playerForest = element.forestDiagram()
 
@@ -80,8 +80,8 @@ def draw_forest_diagram(element):
     tl.penup()
 
     wn.tracer(0)
-    draw_forest_turtle(playerForest[0], playerForest[1], 50)
-    draw_forest_turtle(playerForest[2], playerForest[3], -50, True)
+    drawForestTurtle(playerForest[0], playerForest[1], 50)
+    drawForestTurtle(playerForest[2], playerForest[3], -50, True)
     wn.update()
 
     print("Current element: " + str(element))
@@ -91,7 +91,7 @@ def draw_forest_diagram(element):
 def main():
     entry = ""
     player = ThompsonF()
-    draw_forest_diagram(player)
+    drawForestDiagram(player)
     while entry != "Q":
         entry = input("Next move: ")
         if entry == "Q":
@@ -104,7 +104,7 @@ def main():
             player *= ThompsonF([1],[1])
         elif entry == "N":
             player *= ThompsonF([1],[-1])
-        draw_forest_diagram(player)
+        drawForestDiagram(player)
     sys.exit()
 
 if __name__ == '__main__':
