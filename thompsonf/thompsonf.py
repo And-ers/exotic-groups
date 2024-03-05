@@ -1,6 +1,3 @@
-import os
-import random as Rand
-import matplotlib.pyplot as plt
 import turtle as tl
 import sys
 
