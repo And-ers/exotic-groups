@@ -5,6 +5,8 @@ import turtle as tl
 import sys
 import warnings
 
+warnings.filterwarnings("ignore")
+
 def findNth(input, target, n):
     start = input.find(target)
     while start >= 0 and n > 1:
@@ -478,5 +480,4 @@ def main():
     sys.exit()
 
 if __name__ == '__main__':
-  warnings.filterwarnings("ignore")
   main()
