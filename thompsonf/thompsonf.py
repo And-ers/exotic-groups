@@ -12,7 +12,7 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
-  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
+  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations.
   
   .. math::
     F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid
@@ -293,7 +293,7 @@ class ThompsonF():
 
   def __len__(self):
     """Get the length of the shortest word in terms of :math:`x_0` and :math:`x_1` representing the given element,
-    i.e. its word metric with respect to the set {:math:`x_0, x_1`}.
+    i.e. its word metric with respect to :math:`x_0, x_1`.
 
     :return: The word norm of the given element in :math:`x_0` and :math:`x_1`.
     :rtype: int
