@@ -12,7 +12,7 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
-  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations.
+  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
   
   .. math::
     F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid
