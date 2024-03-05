@@ -5,7 +5,7 @@ import turtle as tl
 import sys
 import warnings
 
-warnings.filterwarnings("ignore")
+warnings.filterwarnings('always')
 
 def findNth(input, target, n):
     start = input.find(target)
