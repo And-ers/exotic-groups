@@ -464,11 +464,13 @@ def main():
     entry = ''
     print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
     drawForestDiagram(elem)
-    while entry != -1:
-        entry = int(input('Enter an integer i to left-multiply by xi: '))
+    entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1, q to quit:\n')
+    while entry != 'q':
+        entry = int(entry)
         elem = ThompsonF([entry],[1]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
         drawForestDiagram(elem)
+        entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1:\n')
     input("Press enter to exit...")
     sys.exit()
 
