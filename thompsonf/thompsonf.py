@@ -446,7 +446,6 @@ def drawForestTurtle(forest,pointer,height,upsideDown = False):
     tl.hideturtle()
     
 def drawForestDiagram(element):
-    os.system('cls')
     playerForest = element.forestDiagram()
 
     wn = tl.Screen()
@@ -467,7 +466,10 @@ def main():
     entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1, q to quit:\n')
     while entry != 'q':
         entry = int(entry)
-        elem = ThompsonF([entry],[1]) * elem
+        if entry >= 0:
+          elem = ThompsonF([entry],[1]) * elem
+        else:
+          elem = ThompsonF([(-1)*entry],[-1]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
         drawForestDiagram(elem)
         entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1:\n')
