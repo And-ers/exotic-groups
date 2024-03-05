@@ -1,11 +1,10 @@
+import warnings
+warnings.simplefilter('ignore')
 import os
 import random as Rand
 import matplotlib.pyplot as plt
 import turtle as tl
 import sys
-import warnings
-
-warnings.filterwarnings('always')
 
 def findNth(input, target, n):
     start = input.find(target)
@@ -15,6 +14,7 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
+  warnings.simplefilter('ignore')
   """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
   
   .. math::
