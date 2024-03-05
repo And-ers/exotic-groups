@@ -1,5 +1,3 @@
-import warnings
-warnings.simplefilter('ignore')
 import os
 import random as Rand
 import matplotlib.pyplot as plt
@@ -14,8 +12,7 @@ def findNth(input, target, n):
     return start
 
 class ThompsonF():
-  warnings.simplefilter('ignore')
-  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations\:
+  """This is a class representation of Thompson's Group F, given the following presentation by generators and relations.
   
   .. math::
     F = \\left\\langle x_0, x_1, x_2, \\ldots, x_n, \\ldots \\mid
@@ -296,7 +293,7 @@ class ThompsonF():
 
   def __len__(self):
     """Get the length of the shortest word in terms of :math:`x_0` and :math:`x_1` representing the given element,
-    i.e. its word metric with respect to the set :math:`\{x_0, x_1\}`.
+    i.e. its word metric with respect to the set {:math:`x_0, x_1`}.
 
     :return: The word norm of the given element in :math:`x_0` and :math:`x_1`.
     :rtype: int
@@ -475,7 +472,9 @@ def main():
         elem = ThompsonF([sign*entry],[sign]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
         drawForestDiagram(elem)
-        entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1:\n')
+        entry = input('Enter an integer k to left-multiply by xₖ.\n\
+                      Enter -k to left-multiply by xₖ⁻¹ (Including -0).\n\
+                      Enter q to quit.\n')
     input("Press enter to exit...")
     sys.exit()
 
