@@ -461,7 +461,7 @@ def drawForestDiagram(element):
 
 def main():
     elem = ThompsonF()
-    entry = None
+    entry = ''
     while entry != -1:
         elem = ThompsonF([entry],[1]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
