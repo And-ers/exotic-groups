@@ -3,6 +3,7 @@ import random as Rand
 import matplotlib.pyplot as plt
 import turtle as tl
 import sys
+import warnings
 
 def findNth(input, target, n):
     start = input.find(target)
@@ -476,5 +477,6 @@ def main():
     input("Press enter to exit...")
     sys.exit()
 
+warnings.filterwarnings("ignore")
 if __name__ == '__main__':
   main()
