@@ -9,3 +9,5 @@ An element of *F* is represented by an element of the ThompsonF class:
 
 .. autoclass:: thompsonf.ThompsonF
     :members:
+ 
+    .. automethod:: __len__
