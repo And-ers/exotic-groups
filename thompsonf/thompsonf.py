@@ -477,6 +477,6 @@ def main():
     input("Press enter to exit...")
     sys.exit()
 
-warnings.filterwarnings("ignore")
 if __name__ == '__main__':
+  warnings.filterwarnings("ignore")
   main()
