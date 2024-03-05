@@ -293,7 +293,7 @@ class ThompsonF():
 
   def __len__(self):
     """Get the length of the shortest word in terms of :math:`x_0` and :math:`x_1` representing the given element,
-    i.e. its word metric with respect to :math:`x_0, x_1`.
+    i.e. its word metric with respect to :math:`\\{x_0, x_1\\}`.
 
     :return: The word norm of the given element in :math:`x_0` and :math:`x_1`.
     :rtype: int
