@@ -460,9 +460,7 @@ def main():
     entry = ''
     print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
     drawForestDiagram(elem)
-    entry = input('Enter an integer k to left-multiply by xₖ.\n\
-                      Enter -k to left-multiply by xₖ⁻¹ (Including -0).\n\
-                      Enter q to quit.\n')
+    entry = input('Enter an integer k to left-multiply by xₖ.\nnter -k to left-multiply by xₖ⁻¹ (Including -0).\nEnter q to quit.\n')
     while entry != 'q':
         sign = 1
         if entry[0] == '-':
@@ -471,9 +469,7 @@ def main():
         elem = ThompsonF([sign*entry],[sign]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
         drawForestDiagram(elem)
-        entry = input('Enter an integer k to left-multiply by xₖ.\n\
-                      Enter -k to left-multiply by xₖ⁻¹ (Including -0).\n\
-                      Enter q to quit.\n')
+        entry = input('Enter an integer k to left-multiply by xₖ.\nEnter -k to left-multiply by xₖ⁻¹ (Including -0).\nEnter q to quit.\n')
     input("Press enter to exit...")
     sys.exit()
 
