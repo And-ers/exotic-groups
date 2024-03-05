@@ -463,7 +463,9 @@ def main():
     entry = ''
     print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
     drawForestDiagram(elem)
-    entry = input('Enter an integer i to left-multiply by xi, negative for xi^-1, q to quit:\n')
+    entry = input('Enter an integer k to left-multiply by xₖ.\n\
+                      Enter -k to left-multiply by xₖ⁻¹ (Including -0).\n\
+                      Enter q to quit.\n')
     while entry != 'q':
         sign = 1
         if entry[0] == '-':
