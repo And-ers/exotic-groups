@@ -451,8 +451,8 @@ def drawForestDiagram(element):
     tl.penup()
 
     wn.tracer(0)
-    drawForestTurtle(playerForest[0], playerForest[1], 50)
-    drawForestTurtle(playerForest[2], playerForest[3], -50, True)
+    drawForestTurtle(playerForest[0], playerForest[1], 20)
+    drawForestTurtle(playerForest[2], playerForest[3], -20, True)
     wn.update()
 
 def main():
