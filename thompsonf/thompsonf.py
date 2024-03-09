@@ -279,20 +279,20 @@ class ThompsonF():
     :return: The given element's multiplicative inverse, in normal form.
     :rtype: ThompsonF
     """
-    norm = self.normalForm()
+    norm = self.normal_form()
     new_exps = [(-1)*x for x in norm._exps[::-1]]
     new_subs = norm._subs[::-1]
-    return ThompsonF(new_subs, new_exps).normalForm()
+    return ThompsonF(new_subs, new_exps).normal_form()
 
   def __mul__(self, other):
-    return ThompsonF(self._subs + other._subs, self._exps + other._exps).normalForm()
+    return ThompsonF(self._subs + other._subs, self._exps + other._exps).normal_form()
   
   def __div__(self, other):
     return self * other.inverse()
 
   def __eq__(self, other):
-    norm1 = self.normalForm()
-    norm2 = other.normalForm()
+    norm1 = self.normal_form()
+    norm2 = other.normal_form()
     return norm1._subs == norm2._subs and norm1._exps == norm2._exps
 
   def __len__(self):
@@ -305,7 +305,7 @@ class ThompsonF():
     if self._subs == [0] and self._exps == [0]:
       return 0
 
-    full_diagram = self.forestDiagram()
+    full_diagram = self.forest_diagram()
     top_forest = full_diagram[0]
 
     # Run through and label the top forest.
@@ -384,18 +384,18 @@ class ThompsonF():
       weight += ThompsonF.space_pair_weights[label]
     return weight
 
-def draw_forest_turtle(forest,pointer,height,upsideDown = False):
+def draw_forest_turtle(forest,pointer,height,upside_down = False):
     # Top forest: Draw each of the leaves, equally spaced.
-    forestList = forest.strip().split(" ")
-    allLeaves = forest.count(".")
-    for leaf in range(allLeaves):
-        tl.goto(25*(leaf-((allLeaves-1)/2)),height)
+    forest_list = forest.strip().split(" ")
+    all_leaves = forest.count(".")
+    for leaf in range(all_leaves):
+        tl.goto(25*(leaf-((all_leaves-1)/2)), height)
         tl.dot()
-    totalLeafCount = 0
-    for treeNum in range(len(forestList)):
-        currTree = forestList[treeNum]
-        currLeafCount = totalLeafCount + currTree.count(".")
-        leafLocs = [(25*(leafNum-((allLeaves-1)/2)), height, (25*(leafNum-((allLeaves-1)/2))), (25*(leafNum-((allLeaves-1)/2)))) for leafNum in range(totalLeafCount,currLeafCount)]
+    total_leaf_count = 0
+    for tree_num in range(len(forest_list)):
+        curr_tree = forest_list[tree_num]
+        curr_leaf_count = total_leaf_count + curr_tree.count(".")
+        leaf_locs = [(25*(leaf_num-((all_leaves-1)/2)), height, (25*(leaf_num-((all_leaves-1)/2))), (25*(leaf_num-((all_leaves-1)/2)))) for leaf_num in range(total_leaf_count,curr_leaf_count)]
         # From the "bottom up", look for every adjacent pair of leaves.
         # Replace that pair of leaves with a single root. Continue
         # until the whole tree is built, i.e., we have one
@@ -403,23 +403,23 @@ def draw_forest_turtle(forest,pointer,height,upsideDown = False):
 
         # Each "location" 4-tuple stores four values: the x-location of the root, the y-location of the root,
         # the x-location of the leftmost vertex, and the y-location of the rightmost vertex.
-        while len(leafLocs) > 1:
-            indexInTree = currTree.find("(.)(.)")
-            leafInTree = currTree.count(".",0,indexInTree)
-            newLoc = ((leafLocs[leafInTree][2] + leafLocs[leafInTree+1][3])/2, (max(leafLocs[leafInTree][1], leafLocs[leafInTree+1][1])+25) if upsideDown == False else (min(leafLocs[leafInTree][1], leafLocs[leafInTree+1][1])-25), min(leafLocs[leafInTree][2], leafLocs[leafInTree+1][2]), max(leafLocs[leafInTree][3], leafLocs[leafInTree+1][3]))
-            firstLoc = leafLocs.pop(leafInTree)
-            tl.goto((firstLoc[0], firstLoc[1]))
+        while len(leaf_locs) > 1:
+            index_in_tree = curr_tree.find("(.)(.)")
+            leaf_in_tree = curr_tree.count(".",0,index_in_tree)
+            new_loc = ((leaf_locs[leaf_in_tree][2] + leaf_locs[leaf_in_tree+1][3])/2, (max(leaf_locs[leaf_in_tree][1], leaf_locs[leaf_in_tree+1][1])+25) if upside_down == False else (min(leaf_locs[leaf_in_tree][1], leaf_locs[leaf_in_tree+1][1])-25), min(leaf_locs[leaf_in_tree][2], leaf_locs[leaf_in_tree+1][2]), max(leaf_locs[leaf_in_tree][3], leaf_locs[leaf_in_tree+1][3]))
+            first_loc = leaf_locs.pop(leaf_in_tree)
+            tl.goto((first_loc[0], first_loc[1]))
             tl.pendown()
-            tl.goto((newLoc[0],newLoc[1]))
-            secondLoc = leafLocs.pop(leafInTree)
-            tl.goto(secondLoc[0],secondLoc[1])
+            tl.goto((new_loc[0],new_loc[1]))
+            second_loc = leaf_locs.pop(leaf_in_tree)
+            tl.goto(second_loc[0],second_loc[1])
             tl.penup()
-            leafLocs.insert(leafInTree,newLoc)
-            currTree = currTree[:indexInTree] + "." + currTree[indexInTree+6:]
-        totalLeafCount = currLeafCount
-        if treeNum == pointer:
-            tl.goto((leafLocs[0][0],leafLocs[0][1]))
-            if upsideDown:
+            leaf_locs.insert(leaf_in_tree,new_loc)
+            curr_tree = curr_tree[:index_in_tree] + "." + curr_tree[index_in_tree+6:]
+        total_leaf_count = curr_leaf_count
+        if tree_num == pointer:
+            tl.goto((leaf_locs[0][0],leaf_locs[0][1]))
+            if upside_down:
                 tl.right(90)
                 tl.forward(10)
                 tl.down()
