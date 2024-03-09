@@ -1,7 +1,7 @@
 import turtle as tl
 import sys
 
-def findNth(input, target, n):
+def find_nth(input, target, n):
     start = input.find(target)
     while start >= 0 and n > 1:
         start = input.find(target, start+1)
@@ -70,7 +70,7 @@ class ThompsonF():
   #####
   #
   #
-  def forestDiagram(self):
+  def forest_diagram(self):
     """Calculates the forest diagram for a given element
         of F, as described in "Forest Diagrams for Elements
         of Thompson's Group F" by Belk and Brown.
@@ -84,7 +84,7 @@ class ThompsonF():
     # Place each individual positive element in one list,
     # and each individual negative elements in another.
     # Both are in descending order.
-    norm = self.normalForm()
+    norm = self.normal_form()
 
     top_elements = []
     bot_elements = []
@@ -161,8 +161,15 @@ class ThompsonF():
   #####
   # Takes an arbitrary element of F and returns the same element in normal form.
   #
-  def normalForm(self):
+  def normal_form(self):
     """Find the normal form of a given element. Specifically, in the form
+
+    .. math::
+    x_{0}^{a_0}x_{1}^{a_1} \\cdots x_{n}^{a_n} x_{m}^{-b_m} \\cdots x_{1}^{-b_1}x_{0}^{-b_0}
+
+    For some nonnegative integers :math:`n, m, a_i, b_j` for all :math:`0 \\le i \\le n` and
+    :math:`0 \\le j \\le m`. Also, for all :math:`k` such that :math:`a_k` and :math:`b_k` are
+    both nonzero, then at least one of :math:`a_{k+1}` or :math:`b_{k+1}` is nonzero as well.
 
     :return: The given element in normal form.
     :rtype: ThompsonF
@@ -267,9 +274,9 @@ class ThompsonF():
     return ThompsonF(new_subs, new_exps)
   
   def inverse(self):
-    """Calculates the inverse of a given element.
+    """Calculates the group inverse of a given element.
 
-    :return: The given element's inverse, in normal form.
+    :return: The given element's multiplicative inverse, in normal form.
     :rtype: ThompsonF
     """
     norm = self.normalForm()
@@ -377,7 +384,7 @@ class ThompsonF():
       weight += ThompsonF.space_pair_weights[label]
     return weight
 
-def drawForestTurtle(forest,pointer,height,upsideDown = False):
+def draw_forest_turtle(forest,pointer,height,upsideDown = False):
     # Top forest: Draw each of the leaves, equally spaced.
     forestList = forest.strip().split(" ")
     allLeaves = forest.count(".")
@@ -442,8 +449,14 @@ def drawForestTurtle(forest,pointer,height,upsideDown = False):
                 tl.up()
     tl.hideturtle()
     
-def drawForestDiagram(element):
-    playerForest = element.forestDiagram()
+def draw_forest_diagram(element):
+    """Draws the forest diagram of a given element in a separate window,
+    using Turtle, Python's basic drawing package.
+
+    :param element: The element whose forest diagram is to be drawn.
+    :type element: ThompsonF
+    """
+    player_forest = element.forest_diagram()
 
     wn = tl.Screen()
     tl.clearscreen()
@@ -451,15 +464,15 @@ def drawForestDiagram(element):
     tl.penup()
 
     wn.tracer(0)
-    drawForestTurtle(playerForest[0], playerForest[1], 20)
-    drawForestTurtle(playerForest[2], playerForest[3], -20, True)
+    draw_forest_turtle(player_forest[0], player_forest[1], 20)
+    draw_forest_turtle(player_forest[2], player_forest[3], -20, True)
     wn.update()
 
 def main():
     elem = ThompsonF()
     entry = ''
     print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
-    drawForestDiagram(elem)
+    draw_forest_diagram(elem)
     entry = input('Enter an integer k to left-multiply by xₖ.\nEnter -k to left-multiply by xₖ⁻¹ (Including -0).\nEnter q to quit.\n')
     while entry != 'q':
         sign = 1
@@ -468,7 +481,7 @@ def main():
         entry = int(entry)
         elem = ThompsonF([sign*entry],[sign]) * elem
         print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
-        drawForestDiagram(elem)
+        draw_forest_diagram(elem)
         entry = input('Enter an integer k to left-multiply by xₖ.\nEnter -k to left-multiply by xₖ⁻¹ (Including -0).\nEnter q to quit.\n')
     input("Press enter to exit...")
     sys.exit()

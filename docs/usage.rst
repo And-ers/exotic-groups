@@ -11,3 +11,5 @@ An element of *F* is represented by an element of the ThompsonF class:
     :members:
  
     .. automethod:: __len__
+
+.. autofunction:: thompsonf.draw_forest_diagram
