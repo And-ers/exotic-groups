@@ -167,9 +167,9 @@ class ThompsonF():
     .. math::
       x_{0}^{a_0}x_{1}^{a_1} \\cdots x_{n}^{a_n} x_{m}^{-b_m} \\cdots x_{1}^{-b_1}x_{0}^{-b_0}
 
-    For some nonnegative integers :math:`n, m, a_i, b_j` for all :math:`0 \\le i \\le n` and
-    :math:`0 \\le j \\le m`. Also, for all :math:`k` such that :math:`a_k` and :math:`b_k` are
-    both nonzero, then at least one of :math:`a_{k+1}` or :math:`b_{k+1}` is nonzero as well.
+    For some nonnegative integers :math:`n, m, a_i, b_j` with :math:`0 \\le i \\le n` and
+    :math:`0 \\le j \\le m`. Additionally, for all :math:`k` such that :math:`a_k` and :math:`b_k` are
+    both nonzero, at least one of :math:`a_{k+1}` or :math:`b_{k+1}` is also nonzero.
 
     :return: The given element in normal form.
     :rtype: ThompsonF
