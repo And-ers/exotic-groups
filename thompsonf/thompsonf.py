@@ -165,7 +165,7 @@ class ThompsonF():
     """Find the normal form of a given element. Specifically, in the form
 
     .. math::
-    x_{0}^{a_0}x_{1}^{a_1} \\cdots x_{n}^{a_n} x_{m}^{-b_m} \\cdots x_{1}^{-b_1}x_{0}^{-b_0}
+      x_{0}^{a_0}x_{1}^{a_1} \\cdots x_{n}^{a_n} x_{m}^{-b_m} \\cdots x_{1}^{-b_1}x_{0}^{-b_0}
 
     For some nonnegative integers :math:`n, m, a_i, b_j` for all :math:`0 \\le i \\le n` and
     :math:`0 \\le j \\le m`. Also, for all :math:`k` such that :math:`a_k` and :math:`b_k` are
