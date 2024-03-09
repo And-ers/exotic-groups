@@ -469,6 +469,16 @@ def draw_forest_diagram(element):
     wn.update()
 
 def main():
+    """Allows the user to experiment with multiplication of elements of :math:`F` through
+    the command prompt. Beginning with the identity element, users can input a positive
+    integer i to left-multiply the current element by :math:`x_i`, or a negative integer
+    to left-multiply by :math:`x_i^{-1}`. Note that an input of 0 results in multiplication
+    by :math:`x_0`, and an input of -0 results in multiplication by :math:`x_0^{-1}`.
+
+    After each input, the current element is printed in normal form in the command prompt,
+    and the forest diagram is drawn in a separate window. The program will loop until
+    the user enters an input of 'q'.
+    """
     elem = ThompsonF()
     entry = ''
     print('-'*50, '\nCurrent Element: ', elem, '\n', '-'*50, sep = '')
